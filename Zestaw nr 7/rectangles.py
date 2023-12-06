@@ -5,6 +5,10 @@ class Rectangle:
 
     def __init__(self, x1, y1, x2, y2):
     # Chcemy, aby x1 < x2, y1 < y2.
+
+        if x1 >= x2 or y1 >= y2:
+            raise ValueError("x1 > x2 lub y1 > y2")
+
         self.pt1 = Point(x1, y1)
         self.pt2 = Point(x2, y2)
 
@@ -23,7 +27,6 @@ class Rectangle:
     def __eq__(self, other):   # obsługa rect1 == rect2
 
         return (self.pt1 == other.pt1) and (self.pt2 == other.pt2)
-
 
     def __ne__(self, other):        # obsługa rect1 != rect2
 
