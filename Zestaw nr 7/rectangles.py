@@ -7,7 +7,7 @@ class Rectangle:
     # Chcemy, aby x1 < x2, y1 < y2.
 
         if x1 >= x2 or y1 >= y2:
-            raise ValueError("x1 > x2 lub y1 > y2")
+            raise ValueError("x1 >= x2 lub y1 >= y2")
 
         self.pt1 = Point(x1, y1)
         self.pt2 = Point(x2, y2)
