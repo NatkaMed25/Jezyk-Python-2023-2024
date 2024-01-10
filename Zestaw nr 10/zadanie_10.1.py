@@ -9,8 +9,7 @@ window.resizable(0, 0)
   
 def roll(): 
     dice_dots = ['1', '2', '3', '4', '5', '6'] 
-    label.configure( 
-        text=f'{random.choice(dice_dots)}') 
+    label.configure(text=f'{random.choice(dice_dots)}') 
     label.pack() 
    
 roll_button = Button(window, text="Rzuć kostką", width=8, height=2, font=10, bg="paleturquoise", bd=2, command=roll) 
