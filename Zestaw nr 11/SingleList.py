@@ -63,7 +63,7 @@ class SingleList:
         
         node = self.tail
 
-        if self.head == self.tail:   # self.length == 1
+        if self.head == self.tail:
             self.head = self.tail = None
         else:
             tmp = self.head
@@ -76,10 +76,15 @@ class SingleList:
         return node
 
     def join(self, other):   # klasy O(1)
-        self.tail.next = other.head
-        self.tail = other.tail
-        self.length = self.length + other.length
-        other.clear()
+
+        if self.is_empty():
+            self.head = other.head
+            self.tail = other.tail
+        else:
+            self.tail.next = other.head
+            self.tail = other.tail
+            self.length = self.length + other.length
+            other.clear()
 
     def clear(self):
         self.head = self.tail = None
