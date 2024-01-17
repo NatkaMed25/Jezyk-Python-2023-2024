@@ -80,11 +80,13 @@ class SingleList:
         if self.is_empty():
             self.head = other.head
             self.tail = other.tail
+            self.lenght = other.lenght
         else:
             self.tail.next = other.head
             self.tail = other.tail
             self.length = self.length + other.length
-            other.clear()
+            
+        other.clear()
 
     def clear(self):
         self.head = self.tail = None
