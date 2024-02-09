@@ -5,7 +5,7 @@ import pygame
 import tkinter as tk
 from tkinter import messagebox
 
-CELL_SIZE = 20
+CELL_SIZE = 25
 TIME = 0.02
 
 UP, RIGHT, DOWN, LEFT = 1, 2, 4, 8
@@ -94,14 +94,15 @@ class Prim:
 
         while self.to_visit:
             x, y = self.to_visit.pop(random.randint(0, len(self.to_visit) - 1))
+
+            self.visit((x, y))
+
             neighbour = self.get_neighbours((x, y))
             nx, ny = neighbour[random.randint(0, len(neighbour) - 1)]
 
             direction = get_direction(x, y, nx, ny)
             self.visited[x][y] |= direction
             self.visited[nx][ny] |= OPPOSITE[direction]
-
-            self.visit((x, y))
 
             drawing_func(self.visited)
             time.sleep(TIME)
